@@ -19,6 +19,7 @@ namespace LumeMemm
         Frame onee, twoo, threee;
         Switch switcher;
         bool switcherrr;
+        Stepper Stepper;
 
 
         public MainPage()
@@ -87,19 +88,19 @@ namespace LumeMemm
                 Opacity = 0
             };
 
-            // Создание кнопок
-            btn1 = new Button()
-            {
-                HorizontalOptions = LayoutOptions.Start,
-                Text = "ON",
+            //Создание кнопок
+           // btn1 = new Button()
+           //{
+           //     HorizontalOptions = LayoutOptions.Start,
+           //     Text = "ON",
 
-            };
-            btn2 = new Button()
-            {
-                HorizontalOptions = LayoutOptions.End,
-                Text = "OFF",
+           // };
+           // btn2 = new Button()
+           // {
+           //     HorizontalOptions = LayoutOptions.End,
+           //     Text = "OFF",
 
-            };
+           // };
             btn3 = new Button()
             {
                 HorizontalOptions = LayoutOptions.End,
@@ -116,12 +117,16 @@ namespace LumeMemm
                 HorizontalOptions = LayoutOptions.Center,
                 
             };
+            Stepper = new Stepper
+            {
+                HorizontalOptions = LayoutOptions.Start
+            };
 
 
 
             StackLayout stackLayout2 = new StackLayout()
             {
-                Children = { btn4, btn1, btn2, btn3 }
+                Children = { btn4, Stepper, btn3 }
             };
             StackLayout stackLayout1 = new StackLayout()
             {
@@ -137,8 +142,9 @@ namespace LumeMemm
 
             Content = stackLayout;
 
-            btn1.Clicked += Btn1_Clicked;
-            btn2.Clicked += Btn2_Clicked;
+            
+            //btn1.Clicked += Btn1_Clicked;
+           // btn2.Clicked += Btn2_Clicked;
             btn3.Clicked += Btn3_Clicked;
             btn4.Clicked += Btn4_Clicked;
             switcher.Toggled += Switcher_Toggled;
@@ -149,10 +155,31 @@ namespace LumeMemm
 
         private async void Btn4_Clicked(object sender, EventArgs e)
         {
-            for (int i = (int)one.Opacity; i < 0 ; i--)
+            Console.WriteLine(onee.Opacity);
+            for (int i = 0; i < 1; i++)
             {
-                onee.Opacity = i;
+                
+                onee.Opacity = 0.8;
+                twoo.Opacity = 0.8;
+                threee.Opacity = 0.8;
                 await Task.Run(() => Thread.Sleep(100));
+                onee.Opacity = 0.5;
+                twoo.Opacity = 0.5;
+                threee.Opacity = 0.5;
+                await Task.Run(() => Thread.Sleep(100));
+                onee.Opacity = 0.2;
+                twoo.Opacity = 0.2;
+                threee.Opacity = 0.2;
+                await Task.Run(() => Thread.Sleep(100));
+                onee.Opacity = 0;
+                twoo.Opacity = 0;
+                threee.Opacity = 0;
+
+
+
+
+
+
             }
         }
 
