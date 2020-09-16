@@ -14,46 +14,29 @@ namespace LumeMemm
     public partial class MainPage : ContentPage
     {
         private Random rnd = new Random();
-        Button btn1, btn2, btn3, btn4;
-        Label one, two, three;
         Frame onee, twoo, threee;
+        Label oneee;
+        Button btn3, btn4;
         Switch switcher;
-        bool switcherrr;
         Stepper Stepper;
+        bool switcherrr;
+        double tempp;
 
 
         public MainPage()
         {
             //InitializeComponent();
-
-            //Создание label
-            one = new Label()
-            {
-
-                TextColor = Color.White,
-                FontSize = 15,
-                FontAttributes = FontAttributes.Bold
-            };
-
+        
+            //Создание Frame
             onee = new Frame()
             {
                 HeightRequest = 20,
                 WidthRequest = 20,
                 BackgroundColor = Color.White,
-                Content = one,
                 CornerRadius = 90,
                 Padding = 80,
                 HorizontalOptions = LayoutOptions.Center,
                 Opacity = 0
-
-            };
-
-            two = new Label()
-            {
-
-                TextColor = Color.White,
-                FontSize = 15,
-                FontAttributes = FontAttributes.Bold
             };
 
             twoo = new Frame()
@@ -61,19 +44,10 @@ namespace LumeMemm
                 HeightRequest = 40,
                 WidthRequest = 40,
                 BackgroundColor = Color.White,
-                Content = one,
                 CornerRadius = 110,
                 Padding = 80,
                 HorizontalOptions = LayoutOptions.Center,
                 Opacity = 0
-            };
-
-            three = new Label()
-            {
-
-                TextColor = Color.White,
-                FontSize = 15,
-                FontAttributes = FontAttributes.Bold
             };
 
             threee = new Frame()
@@ -81,35 +55,35 @@ namespace LumeMemm
                 HeightRequest = 60,
                 WidthRequest = 60,
                 BackgroundColor = Color.White,
-                Content = one,
                 CornerRadius = 130,
                 Padding = 80,
                 HorizontalOptions = LayoutOptions.Center,
                 Opacity = 0
             };
+            //Создание label
+            oneee = new Label()
+            {
+                
+            };
 
-            //Создание кнопок
-           // btn1 = new Button()
-           //{
-           //     HorizontalOptions = LayoutOptions.Start,
-           //     Text = "ON",
 
-           // };
-           // btn2 = new Button()
-           // {
-           //     HorizontalOptions = LayoutOptions.End,
-           //     Text = "OFF",
 
-           // };
+
+
+
+
+
             btn3 = new Button()
             {
                 HorizontalOptions = LayoutOptions.End,
                 Text = "Random",
+            
             };
             btn4 = new Button()
             {
                 HorizontalOptions = LayoutOptions.Start,
                 Text = "Bye",
+            
             };
             switcher = new Switch
             {
@@ -119,7 +93,13 @@ namespace LumeMemm
             };
             Stepper = new Stepper
             {
-                HorizontalOptions = LayoutOptions.Start
+                HorizontalOptions = LayoutOptions.Start,
+                Increment = 1,
+                Maximum = 20,
+                Minimum = 0,
+                Opacity = 0
+                
+
             };
 
 
@@ -134,7 +114,7 @@ namespace LumeMemm
             };
             StackLayout stackLayout = new StackLayout()
             {
-                Children = { onee, twoo, threee, stackLayout2, stackLayout1 }
+                Children = { onee, twoo, threee, stackLayout2, stackLayout1, oneee }
 
             };
             stackLayout2.Orientation = StackOrientation.Horizontal;
@@ -142,44 +122,102 @@ namespace LumeMemm
 
             Content = stackLayout;
 
-            
-            //btn1.Clicked += Btn1_Clicked;
-           // btn2.Clicked += Btn2_Clicked;
             btn3.Clicked += Btn3_Clicked;
             btn4.Clicked += Btn4_Clicked;
             switcher.Toggled += Switcher_Toggled;
+            Stepper.ValueChanged += Stepper_ValueChanged;
+
+            
+
+        }
 
 
+        private async void Stepper_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            tempp = e.NewValue;
 
+            if(switcherrr == true)
+            {
+                oneee.Text = String.Format("Temp:{0:F1}℃", e.NewValue);
+                if (tempp >= 1)
+                {
+                    switcher.Opacity = 0;
+                    for (int i = 0; i < 1; i++)
+                    {
+
+                        onee.Opacity = 0.8;
+                        twoo.Opacity = 0.8;
+                        threee.Opacity = 0.8;
+                        await Task.Run(() => Thread.Sleep(1000));
+                        onee.Opacity = 0.6;
+                        twoo.Opacity = 0.6;
+                        threee.Opacity = 0.6;
+                        await Task.Run(() => Thread.Sleep(1000));
+                        onee.Opacity = 0.4;
+                        twoo.Opacity = 0.4;
+                        threee.Opacity = 0.4;
+                        await Task.Run(() => Thread.Sleep(1000));
+                        onee.Opacity = 0.2;
+                        twoo.Opacity = 0.2;
+                        threee.Opacity = 0.2;
+                        await Task.Run(() => Thread.Sleep(1000));
+                        onee.Opacity = 0;
+                        twoo.Opacity = 0;
+                        threee.Opacity = 0;
+
+                    }
+                }
+                else if (tempp >= 4)
+                {
+                    for (int i = 0; i < 1; i++)
+                    {
+
+                        onee.Opacity = 0.8;
+                        twoo.Opacity = 0.8;
+                        threee.Opacity = 0.8;
+                        await Task.Run(() => Thread.Sleep(500));
+
+                        onee.Opacity = 0.4;
+                        twoo.Opacity = 0.4;
+                        threee.Opacity = 0.4;
+                        await Task.Run(() => Thread.Sleep(500));
+
+                        onee.Opacity = 0;
+                        twoo.Opacity = 0;
+                        threee.Opacity = 0;
+                    }
+                }
+            }   
         }
 
         private async void Btn4_Clicked(object sender, EventArgs e)
         {
-            Console.WriteLine(onee.Opacity);
-            for (int i = 0; i < 1; i++)
+            if (switcherrr == true)
             {
-                
-                onee.Opacity = 0.8;
-                twoo.Opacity = 0.8;
-                threee.Opacity = 0.8;
-                await Task.Run(() => Thread.Sleep(100));
-                onee.Opacity = 0.5;
-                twoo.Opacity = 0.5;
-                threee.Opacity = 0.5;
-                await Task.Run(() => Thread.Sleep(100));
-                onee.Opacity = 0.2;
-                twoo.Opacity = 0.2;
-                threee.Opacity = 0.2;
-                await Task.Run(() => Thread.Sleep(100));
-                onee.Opacity = 0;
-                twoo.Opacity = 0;
-                threee.Opacity = 0;
-
-
-
-
-
-
+                for (int i = 0; i < 1; i++)
+                {
+                    
+                    onee.Opacity = 0.8;
+                    twoo.Opacity = 0.8;
+                    threee.Opacity = 0.8;
+                    await Task.Run(() => Thread.Sleep(100));
+                    onee.Opacity = 0.5;
+                    twoo.Opacity = 0.5;
+                    threee.Opacity = 0.5;
+                    await Task.Run(() => Thread.Sleep(100));
+                    onee.Opacity = 0.2;
+                    twoo.Opacity = 0.2;
+                    threee.Opacity = 0.2;
+                    await Task.Run(() => Thread.Sleep(100));
+                    onee.Opacity = 0;
+                    twoo.Opacity = 0;
+                    threee.Opacity = 0;
+                    
+                }
+            }
+            else if (switcherrr == false)
+            {
+                await DisplayAlert("Уведомление", "Снеговик выключен, сначало включи его", "ОK");
             }
         }
 
@@ -192,6 +230,8 @@ namespace LumeMemm
                 onee.Opacity = 100;
                 twoo.Opacity = 100;
                 threee.Opacity = 100;
+                Stepper.Opacity = 100;
+            
             }
      
             else if (e.Value == false)
@@ -199,11 +239,15 @@ namespace LumeMemm
                 onee.Opacity = 0;
                 twoo.Opacity = 0;
                 threee.Opacity = 0;
+                Stepper.Opacity = 0;
+             
 
                 onee.BackgroundColor = Color.White;
                 twoo.BackgroundColor = Color.White;
                 threee.BackgroundColor = Color.White;
 
+                Stepper.Value = 0;
+                oneee.Text = "";
             }
         }
 
@@ -227,16 +271,6 @@ namespace LumeMemm
 
 
 
-        }
-
-        private void Btn2_Clicked(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Btn1_Clicked(object sender, EventArgs e)
-        {
-          
         }
     }
 }
