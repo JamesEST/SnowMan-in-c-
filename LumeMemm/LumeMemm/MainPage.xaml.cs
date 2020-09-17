@@ -88,7 +88,7 @@ namespace LumeMemm
             {
                 HorizontalOptions = LayoutOptions.Start,
                 Increment = 1,
-                Maximum = 20,
+                Maximum = 8,
                 Minimum = 0,
                 Opacity = 0
                 
