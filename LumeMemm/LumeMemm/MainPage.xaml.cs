@@ -66,13 +66,6 @@ namespace LumeMemm
                 
             };
 
-
-
-
-
-
-
-
             btn3 = new Button()
             {
                 HorizontalOptions = LayoutOptions.End,
@@ -102,8 +95,6 @@ namespace LumeMemm
 
             };
 
-
-
             StackLayout stackLayout2 = new StackLayout()
             {
                 Children = { btn4, Stepper, btn3 }
@@ -126,9 +117,6 @@ namespace LumeMemm
             btn4.Clicked += Btn4_Clicked;
             switcher.Toggled += Switcher_Toggled;
             Stepper.ValueChanged += Stepper_ValueChanged;
-
-            
-
         }
 
 
@@ -187,6 +175,7 @@ namespace LumeMemm
                         threee.Opacity = 0;
                     }
                 }
+               switcher.Opacity = 100;
             }   
         }
 
