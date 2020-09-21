@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LumeMemm.Snowman_AbsoluteLayout">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#ffb366">
+            <BoxView Color="#e67300"
+                     AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 0.06"
+                     AbsoluteLayout.LayoutFlags="All"/>
+            
+            <Button x:Name="ButtonOn"
+                    AbsoluteLayout.LayoutBounds="0.0, 0.7, 0.4, 0.06"
+                    AbsoluteLayout.LayoutFlags="All"
+                    BackgroundColor="#ffa64d"
+                    TextColor="#804000"
+                    Text="Включить"
+                    CornerRadius="110"
+                    Clicked="ButtonOn_OnClicked"/>
+            <BoxView x:Name="One"
+                     Color="White"
+                     AbsoluteLayout.LayoutBounds="0.5, 0.1, 0.3, 0.15"
+                     AbsoluteLayout.LayoutFlags="All"
+                     CornerRadius="110"
+                />
+            <BoxView x:Name="Two"
+                     Color="White"
+                     AbsoluteLayout.LayoutBounds="0.5, 0.25, 0.4, 0.2"
+                     AbsoluteLayout.LayoutFlags="All"
+                     CornerRadius="110"
+            />
+            <BoxView x:Name="Three"
+                     Color="White"
+                     AbsoluteLayout.LayoutBounds="0.5, 0.45, 0.5, 0.2"
+                     AbsoluteLayout.LayoutFlags="All"
+                     CornerRadius="110"
+            />
+        </AbsoluteLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
