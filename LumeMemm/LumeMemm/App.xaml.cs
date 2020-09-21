@@ -10,7 +10,7 @@ namespace LumeMemm
         {
             InitializeComponent();
 
-            MainPage = new Page1();
+            MainPage = new Snowman_AbsoluteLayout();
         }
 
         protected override void OnStart()

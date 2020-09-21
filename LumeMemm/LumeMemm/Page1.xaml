@@ -13,36 +13,36 @@
                    AbsoluteLayout.LayoutBounds="0.0, 0.0, 0.0, 0.0"
                    AbsoluteLayout.LayoutFlags="All"/>
 
-            <!--<BoxView Color="#a18562"
+            <BoxView Color="#a18562"
                      AbsoluteLayout.LayoutBounds="0.5, 0.2, 390, 500"
                      AbsoluteLayout.LayoutFlags="All"/>
 
             <BoxView x:Name="one" 
                      Color="White"
                      AbsoluteLayout.LayoutBounds="0.5, 0.1, 150, 150"
-                     AbsoluteLayout.LayoutFlags="All"/>
+                     AbsoluteLayout.LayoutFlags="All"
                      CornerRadius="110"/>
             
             <BoxView x:Name="two"
                      Color="White"
                      AbsoluteLayout.LayoutBounds="0.5, 0.3, 180, 180"
-                     AbsoluteLayout.LayoutFlags="All"/>
+                     AbsoluteLayout.LayoutFlags="All"
                      CornerRadius="110"/>
             
             <BoxView x:Name="three"
                      Color="White" 
                      AbsoluteLayout.LayoutBounds="0.5, 0.56, 200, 200"
-                    AbsoluteLayout.LayoutFlags="All"/>
+                    AbsoluteLayout.LayoutFlags="All"
                      CornerRadius="110"/>
             
             <Button x:Name="btn"
                     BackgroundColor="#a18562"
                     AbsoluteLayout.LayoutBounds="0.04, 0.7, 120, 50"
-                    AbsoluteLayout.LayoutFlags="All"/>
+                    AbsoluteLayout.LayoutFlags="All"
                     Text="Включить"
                     TextColor="#504231"
                     Clicked="Btn_Clicked"
-                    />-->
+                    />
 
         </AbsoluteLayout>
     </ContentPage.Content>
